@@ -22,7 +22,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install node-fetch@3
+        run: npm install axios
 
       - name: Run API check
         run: |
