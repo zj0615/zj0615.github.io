@@ -10,15 +10,15 @@ const RETRIES = 2;          // 失败重试次数
 const data = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
 const apiKeys = Object.keys(data.api_site);
 
-const referer = apiEntry.detail && apiEntry.detail.startsWith('http') 
-  ? apiEntry.detail 
-  : 'https://zj0615.github.io'; // 默认一个合法的 Referer
-
 console.log(`Checking ${apiKeys.length} APIs with max ${MAX_CONCURRENT} concurrent requests...`);
 
 async function checkApi(key) {
   const apiEntry = data.api_site[key];
   const url = apiEntry.api + '/?wd=测试';
+
+  const referer = apiEntry.detail && apiEntry.detail.startsWith('http') 
+    ? apiEntry.detail 
+    : 'https://zj0615.github.io'; // 默认一个合法的 Referer
 
   for (let attempt = 1; attempt <= RETRIES; attempt++) {
     try {
