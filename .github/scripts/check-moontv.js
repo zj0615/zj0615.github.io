@@ -37,8 +37,11 @@ async function checkApi(key) {
       }
     } catch (e) {
       if (attempt === RETRIES) {
-        apiEntry.disabled = true;
-        return { key, status: 'FAIL' };
+        // apiEntry.disabled = true;
+        // return { key, status: 'FAIL' };
+        // 最终失败，标记为删除
+        delete data.api_site[key];
+        return { key, status: 'DELETED' };
       }
       // 等待 1 秒后重试
       await new Promise(r => setTimeout(r, 1000));
