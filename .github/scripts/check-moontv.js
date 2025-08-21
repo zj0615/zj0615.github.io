@@ -32,7 +32,7 @@ async function checkApi(key) {
       });
       if (typeof res.data === 'object') {
         delete apiEntry.disabled;
-        return { key, status: 'OK', output: ' ' };
+        return { key, status: 'OK', output: res.data};
       } else {
         throw new Error('Response is not JSON');
       }
@@ -42,7 +42,7 @@ async function checkApi(key) {
         // return { key, status: 'FAIL' };
         // 最终失败，标记为删除
         delete data.api_site[key];
-        return { key, status: 'DELETED', output: res };
+        return { key, status: 'DELETED', output: res.data};
       }
       // 等待 1 秒后重试
       await new Promise(r => setTimeout(r, 1000));
