@@ -32,7 +32,7 @@ async function checkApi(key) {
       });
       if (typeof res.data === 'object') {
         delete apiEntry.disabled;
-        return { key, status: 'OK' };
+        return { key, status: 'OK', output: ' ' };
       } else {
         throw new Error('Response is not JSON');
       }
@@ -42,7 +42,7 @@ async function checkApi(key) {
         // return { key, status: 'FAIL' };
         // 最终失败，标记为删除
         delete data.api_site[key];
-        return { key, status: 'DELETED' };
+        return { key, status: 'DELETED', output: res };
       }
       // 等待 1 秒后重试
       await new Promise(r => setTimeout(r, 1000));
@@ -59,7 +59,7 @@ async function parallelCheck(keys, maxConcurrent) {
     while (queue.length > 0) {
       const key = queue.shift();
       const result = await checkApi(key);
-      console.log(`${result.key}: ${result.status}`);
+      console.log(`${result.key}: ${result.status}: ${result.output}`);
       results.push(result);
     }
   }
