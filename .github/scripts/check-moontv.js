@@ -16,9 +16,9 @@ async function checkApi(key) {
   const apiEntry = data.api_site[key];
   const url = apiEntry.api + '/?wd=测试';
 
-  const referer = apiEntry.detail && apiEntry.detail.startsWith('http') 
-    ? apiEntry.detail 
-    : 'https://zj0615.github.io'; // 默认一个合法的 Referer
+  // const referer = apiEntry.detail && apiEntry.detail.startsWith('http') 
+  //   ? apiEntry.detail 
+  //   : 'https://zj0615.github.io'; // 默认一个合法的 Referer
 
   for (let attempt = 1; attempt <= RETRIES; attempt++) {
     try {
@@ -27,7 +27,7 @@ async function checkApi(key) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
         'Accept': 'application/json, text/javascript, */*; q=0.01',
         'Accept-Language': 'zh-CN,zh;q=0.9',
-        'Referer': referer, // 一些站点需要 referer
+        // 'Referer': referer, // 一些站点需要 referer
       }});
       if (typeof res.data === 'object') {
         delete apiEntry.disabled;
