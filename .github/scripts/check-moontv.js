@@ -34,16 +34,20 @@ async function checkApi(key) {
         delete apiEntry.disabled;
         return { key, status: 'OK'};
       } else {
-        throw new Error('Response is not JSON');
+        throw new Error(
+          `Response is not JSON, got: ${
+            typeof res.data === 'string'
+              ? res.data.slice(0, 200)
+              : JSON.stringify(res.data).slice(0, 200)
+          }`
+      );
       }
     } catch (e) {
       // 这里增加失败信息打印
       if (e.response) {
-        console.error(`❌ ${key} failed (HTTP ${e.response.status}):`, e.response.data);
-      } else if (e.request) {
-        console.error(`❌ ${key} no response:`, e.message);
+          console.error(`❌ ${key} failed (HTTP ${e.response.status}):`, e.response.data);
       } else {
-        console.error(`❌ ${key} error:`, e.message);
+          console.error(`❌ ${key} error:`, e.message);
       }
       
       if (attempt === RETRIES) {
