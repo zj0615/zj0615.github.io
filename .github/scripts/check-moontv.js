@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 
-const inputFile = path.join(__dirname, 'moontv.json');
-const outputFile = path.join(__dirname, 'moontv_checked.json');
+const inputFile = 'moontv.json';
+const outputFile = 'moontv_checked.json';
 
 // 读取原始 JSON
 const rawData = fs.readFileSync(inputFile, 'utf-8');
