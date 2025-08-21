@@ -395,6 +395,10 @@
             "api": "https://slapibf.com/api.php/provide/vod",
             "name": "森林资源"
         },
+        "aiduanjucc": {
+            "api": "https://www.aiduanju.cc/",
+            "name": "爱短剧.cc"
+        },
         "huaweiba": {
             "api": "https://huawei8.live/api.php/provide/vod",
             "name": "华为吧资源"
@@ -440,7 +444,7 @@
             "name": "小鸡资源"
         },
         "kauicheziyuan": {
-            "api": "https://caiji.kuaichezy.org/api.php/provide/vod",
+            "api": "https://caiji.kuaichezy.org/api.php/provide",
             "name": "快车资源阿"
         },
         "xinlangaa": {
@@ -448,7 +452,7 @@
             "name": "新浪资源阿"
         },
         "lajiaoziyu": {
-            "api": "https://apilj.com/api.php/provide/vod",
+            "api": "https://apilj.com/api.php/provide",
             "name": "辣椒资源黄黄"
         },
         "youzhidianying": {
