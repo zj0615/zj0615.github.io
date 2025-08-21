@@ -45,7 +45,7 @@ async function checkApi(key) {
     } catch (e) {
       // 这里增加失败信息打印
       if (e.response) {
-          console.error(`❌ ${key} failed (HTTP ${e.response.status}):`, e.response.data);
+          console.error(`❌ ${key} failed (HTTP ${e.response.status}):`);
       } else {
           console.error(`❌ ${key} error:`, e.message);
       }
