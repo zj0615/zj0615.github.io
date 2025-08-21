@@ -75,8 +75,7 @@
     "api_15": {
       "name": "TV-如意资源",
       "api": "https://cj.rycjapi.com/api.php/provide/vod",
-      "detail": "",
-      "disabled": true
+      "detail": ""
     },
     "api_16": {
       "name": "TV-小猫咪资源",
@@ -292,8 +291,7 @@
     "api_56": {
       "name": "AV-乐播资源",
       "api": "https://lbapi9.com/api.php/provide/vod",
-      "detail": "",
-      "disabled": true
+      "detail": ""
     },
     "api_57": {
       "name": "AV-奥斯卡资源",
@@ -325,8 +323,7 @@
     "api_62": {
       "name": "AV-番号资源",
       "api": "http://fhapi9.com/api.php/provide/vod",
-      "detail": "",
-      "disabled": true
+      "detail": ""
     },
     "api_63": {
       "name": "AV-白嫖资源",
@@ -353,8 +350,7 @@
     "api_67": {
       "name": "AV-色南国",
       "api": "https://api.sexnguon.com/api.php/provide/vod",
-      "detail": "https://api.sexnguon.com",
-      "disabled": true
+      "detail": "https://api.sexnguon.com"
     },
     "api_68": {
       "name": "AV-色猫资源",
@@ -365,8 +361,7 @@
     "api_69": {
       "name": "AV-辣椒资源",
       "api": "https://apilj.com/api.php/provide/vod",
-      "detail": "https://apilj.com",
-      "disabled": true
+      "detail": "https://apilj.com"
     },
     "api_70": {
       "name": "AV-香奶儿资源",
@@ -377,8 +372,7 @@
     "api_71": {
       "name": "AV-鲨鱼资源",
       "api": "https://shayuapi.com/api.php/provide/vod",
-      "detail": "https://shayuapi.com",
-      "disabled": true
+      "detail": "https://shayuapi.com"
     },
     "api_72": {
       "name": "AV-黄AV资源",
@@ -498,8 +492,7 @@
     },
     "xibaocaiji": {
       "api": "https://www.xxibaozyw.com/api.php/provide/vod",
-      "name": "细胞采集黄色",
-      "disabled": true
+      "name": "细胞采集黄色"
     },
     "qiqiqiqi": {
       "api": "https://www.qiqidys.com/api.php/provide/vod/",
