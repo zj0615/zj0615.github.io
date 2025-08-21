@@ -32,17 +32,26 @@ async function checkApi(key) {
       });
       if (typeof res.data === 'object') {
         delete apiEntry.disabled;
-        return { key, status: 'OK', output: res.data};
+        return { key, status: 'OK'};
       } else {
         throw new Error('Response is not JSON');
       }
     } catch (e) {
+      // 这里增加失败信息打印
+      if (e.response) {
+        console.error(`❌ ${key} failed (HTTP ${e.response.status}):`, e.response.data);
+      } else if (e.request) {
+        console.error(`❌ ${key} no response:`, e.message);
+      } else {
+        console.error(`❌ ${key} error:`, e.message);
+      }
+      
       if (attempt === RETRIES) {
         // apiEntry.disabled = true;
         // return { key, status: 'FAIL' };
         // 最终失败，标记为删除
         delete data.api_site[key];
-        return { key, status: 'DELETED', output: res.data};
+        return { key, status: 'DELETED'};
       }
       // 等待 1 秒后重试
       await new Promise(r => setTimeout(r, 1000));
@@ -59,7 +68,7 @@ async function parallelCheck(keys, maxConcurrent) {
     while (queue.length > 0) {
       const key = queue.shift();
       const result = await checkApi(key);
-      console.log(`${result.key}: ${result.status}: ${result.output}`);
+      console.log(`${result.key}: ${result.status}`);
       results.push(result);
     }
   }
