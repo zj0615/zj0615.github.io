@@ -1,43 +1,47 @@
-import fs from 'fs';
-import fetch from 'node-fetch';
+// check-moontv.js
+const fs = require('fs');
+const path = require('path');
+const axios = require('axios');
 
-const inputFile = 'moontv.json';
-const outputFile = 'moontv_checked.json';
+const inputFile = path.join(__dirname, 'moontv.json');
+const outputFile = path.join(__dirname, 'moontv_checked.json');
 
-const data = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
+// 读取原始 JSON
+const rawData = fs.readFileSync(inputFile, 'utf-8');
+const data = JSON.parse(rawData);
+
 const apiKeys = Object.keys(data.api_site);
 
-console.log(`Checking ${apiKeys.length} APIs...`);
-
+// 并行检测
 async function checkApi(key) {
-  const apiEntry = data.api_site[key];
-  try {
-    const res = await fetch(apiEntry.api, { timeout: 10000 });
-    const text = await res.text();
+  const apiInfo = data.api_site[key];
+  const url = apiInfo.api + '/?wd=测试';
 
-    try {
-      JSON.parse(text);
-      delete apiEntry.disabled; // 成功返回 JSON，删除 disabled
-      return { key, status: 'OK' };
-    } catch {
-      apiEntry.disabled = true; // 返回非 JSON
-      return { key, status: 'FAIL' };
+  try {
+    const res = await axios.get(url, { timeout: 10000 });
+    // 尝试解析 JSON
+    if (typeof res.data === 'object') {
+      // 删除 disabled
+      delete data.api_site[key].disabled;
+      console.log(`${key} OK`);
+    } else {
+      // 返回非 JSON
+      data.api_site[key].disabled = true;
+      console.log(`${key} FAIL (non-JSON response)`);
     }
-  } catch (e) {
-    apiEntry.disabled = true; // 请求失败
-    return { key, status: 'FAIL' };
+  } catch (err) {
+    // 请求失败
+    data.api_site[key].disabled = true;
+    console.log(`${key} FAIL (${err.message})`);
   }
 }
 
-(async () => {
-  // 并行检查
-  const results = await Promise.allSettled(apiKeys.map(checkApi));
-  results.forEach(r => {
-    if (r.status === 'fulfilled') {
-      console.log(`${r.value.key}: ${r.value.status}`);
-    }
-  });
+async function main() {
+  await Promise.allSettled(apiKeys.map(checkApi));
 
-  fs.writeFileSync(outputFile, JSON.stringify(data, null, 2));
-  console.log(`Done. Saved to ${outputFile}`);
-})();
+  // 写入新文件
+  fs.writeFileSync(outputFile, JSON.stringify(data, null, 2), 'utf-8');
+  console.log(`Done! Results saved to ${outputFile}`);
+}
+
+main();
