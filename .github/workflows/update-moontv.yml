@@ -1,0 +1,70 @@
+name: Check moontv.json APIs (Parallel)
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # 每小时运行一次
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq moreutils
+
+      - name: Check APIs in parallel and create moontv_checked.json
+        run: |
+          input="moontv.json"
+          output="moontv_checked.json"
+
+          cp "$input" "$output"
+
+          keys=$(jq -r '.api_site | keys[]' "$input")
+          tmp=$(mktemp)
+          jq '.' "$output" > "$tmp"
+
+          # 定义检测函数
+          check_api() {
+            key=$1
+            url=$(jq -r ".api_site[\"$key\"].api" "$tmp")
+            echo "Checking $key: $url"
+
+            response=$(curl -s --max-time 10 "$url")
+
+            if echo "$response" | jq empty >/dev/null 2>&1; then
+              echo "$key OK"
+              echo "$key|OK"
+            else
+              echo "$key FAIL"
+              echo "$key|FAIL"
+            fi
+          }
+
+          export -f check_api
+          export tmp
+
+          # 并行检测
+          echo "$keys" | xargs -n1 -P 20 -I{} bash -c 'check_api "$@"' _ {} > results.txt
+
+          result=$(cat "$tmp")
+
+          while IFS='|' read -r key status; do
+            if [ "$status" = "FAIL" ]; then
+              result=$(jq ".api_site[\"$key\"].disabled = true" <<< "$result")
+            else
+              result=$(jq "del(.api_site[\"$key\"].disabled)" <<< "$result")
+            fi
+          done < results.txt
+
+          echo "$result" > "$output"
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add moontv_checked.json
+          git commit -m "Auto-generate moontv_checked.json (parallel check)" || echo "No changes"
+          git push
