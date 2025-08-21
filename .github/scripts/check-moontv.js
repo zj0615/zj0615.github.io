@@ -1,47 +1,44 @@
-// check-moontv.js
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
+import fs from 'fs';
+import fetch from 'node-fetch';
 
 const inputFile = 'moontv.json';
 const outputFile = 'moontv_checked.json';
 
-// 读取原始 JSON
-const rawData = fs.readFileSync(inputFile, 'utf-8');
-const data = JSON.parse(rawData);
-
+const data = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
 const apiKeys = Object.keys(data.api_site);
 
-// 并行检测
-async function checkApi(key) {
-  const apiInfo = data.api_site[key];
-  const url = apiInfo.api + '/?wd=测试';
+console.log(`Checking ${apiKeys.length} APIs...`);
 
+async function checkApi(key) {
+  const apiEntry = data.api_site[key];
+  const url = apiEntry.api + '/?wd=测试';
   try {
-    const res = await axios.get(url, { timeout: 10000 });
-    // 尝试解析 JSON
-    if (typeof res.data === 'object') {
-      // 删除 disabled
-      delete data.api_site[key].disabled;
-      console.log(`${key} OK`);
-    } else {
-      // 返回非 JSON
-      data.api_site[key].disabled = true;
-      console.log(`${key} FAIL (non-JSON response)`);
+    const res = await fetch(url, { timeout: 10000 });
+    const text = await res.text();
+
+    try {
+      JSON.parse(text);
+      delete apiEntry.disabled; // 成功返回 JSON，删除 disabled
+      return { key, status: 'OK' };
+    } catch {
+      apiEntry.disabled = true; // 返回非 JSON
+      return { key, status: 'FAIL' };
     }
-  } catch (err) {
-    // 请求失败
-    data.api_site[key].disabled = true;
-    console.log(`${key} FAIL (${err.message})`);
+  } catch (e) {
+    apiEntry.disabled = true; // 请求失败
+    return { key, status: 'FAIL' };
   }
 }
 
-async function main() {
-  await Promise.allSettled(apiKeys.map(checkApi));
+(async () => {
+  // 并行检查
+  const results = await Promise.allSettled(apiKeys.map(checkApi));
+  results.forEach(r => {
+    if (r.status === 'fulfilled') {
+      console.log(`${r.value.key}: ${r.value.status}`);
+    }
+  });
 
-  // 写入新文件
-  fs.writeFileSync(outputFile, JSON.stringify(data, null, 2), 'utf-8');
-  console.log(`Done! Results saved to ${outputFile}`);
-}
-
-main();
+  fs.writeFileSync(outputFile, JSON.stringify(data, null, 2));
+  console.log(`Done. Saved to ${outputFile}`);
+})();
