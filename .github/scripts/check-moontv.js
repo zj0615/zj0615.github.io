@@ -37,8 +37,8 @@ async function checkApi(key) {
         throw new Error(
           `Response is not JSON, got: ${
             typeof res.data === 'string'
-              ? res.data.slice(0, 200)
-              : JSON.stringify(res.data).slice(0, 200)
+              ? res.data
+              : JSON.stringify(res.data)
           }`
       );
       }
