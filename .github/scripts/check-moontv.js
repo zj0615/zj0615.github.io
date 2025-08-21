@@ -1,44 +1,62 @@
 import fs from 'fs';
-import fetch from 'node-fetch';
+import axios from 'axios';
 
 const inputFile = 'moontv.json';
 const outputFile = 'moontv_checked.json';
+const MAX_CONCURRENT = 10;  // 并行数量限制
+const TIMEOUT = 20000;      // 超时时间 20 秒
+const RETRIES = 2;          // 失败重试次数
 
 const data = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
 const apiKeys = Object.keys(data.api_site);
 
-console.log(`Checking ${apiKeys.length} APIs...`);
+console.log(`Checking ${apiKeys.length} APIs with max ${MAX_CONCURRENT} concurrent requests...`);
 
 async function checkApi(key) {
   const apiEntry = data.api_site[key];
   const url = apiEntry.api + '/?wd=测试';
-  try {
-    const res = await fetch(url, { timeout: 10000 });
-    const text = await res.text();
 
+  for (let attempt = 1; attempt <= RETRIES; attempt++) {
     try {
-      JSON.parse(text);
-      delete apiEntry.disabled; // 成功返回 JSON，删除 disabled
-      return { key, status: 'OK' };
-    } catch {
-      apiEntry.disabled = true; // 返回非 JSON
-      return { key, status: 'FAIL' };
+      const res = await axios.get(url, { timeout: TIMEOUT });
+      if (typeof res.data === 'object') {
+        delete apiEntry.disabled;
+        return { key, status: 'OK' };
+      } else {
+        throw new Error('Response is not JSON');
+      }
+    } catch (e) {
+      if (attempt === RETRIES) {
+        apiEntry.disabled = true;
+        return { key, status: 'FAIL' };
+      }
+      // 等待 1 秒后重试
+      await new Promise(r => setTimeout(r, 1000));
     }
-  } catch (e) {
-    apiEntry.disabled = true; // 请求失败
-    return { key, status: 'FAIL' };
   }
 }
 
-(async () => {
-  // 并行检查
-  const results = await Promise.allSettled(apiKeys.map(checkApi));
-  results.forEach(r => {
-    if (r.status === 'fulfilled') {
-      console.log(`${r.value.key}: ${r.value.status}`);
-    }
-  });
+// 控制并行数量
+async function parallelCheck(keys, maxConcurrent) {
+  const results = [];
+  const queue = [...keys];
 
+  async function worker() {
+    while (queue.length > 0) {
+      const key = queue.shift();
+      const result = await checkApi(key);
+      console.log(`${result.key}: ${result.status}`);
+      results.push(result);
+    }
+  }
+
+  const workers = Array.from({ length: maxConcurrent }, worker);
+  await Promise.all(workers);
+  return results;
+}
+
+(async () => {
+  await parallelCheck(apiKeys, MAX_CONCURRENT);
   fs.writeFileSync(outputFile, JSON.stringify(data, null, 2));
   console.log(`Done. Saved to ${outputFile}`);
 })();
