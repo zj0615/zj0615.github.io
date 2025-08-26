@@ -46,16 +46,6 @@
       "api": "https://api.guangsuapi.com/api.php/provide/vod",
       "detail": "https://api.guangsuapi.com"
     },
-    "api_11": {
-      "name": "TV-卧龙点播",
-      "api": "https://collect.wolongzyw.com/api.php/provide/vod",
-      "detail": "https://collect.wolongzyw.com"
-    },
-    "api_12": {
-      "name": "TV-卧龙资源",
-      "api": "https://collect.wolongzy.cc/api.php/provide/vod",
-      "detail": ""
-    },
     "api_13": {
       "name": "TV-卧龙资源",
       "api": "https://wolongzyw.com/api.php/provide/vod",
@@ -196,6 +186,11 @@
       "api": "https://www.mdzyapi.com/api.php/provide/vod",
       "detail": "https://www.mdzyapi.com"
     },
+    "api_52": {
+      "name": "AV-91麻豆",
+      "api": "https://91md.me/api.php/provide/vod",
+      "detail": "https://91md.me"
+    },
     "api_53": {
       "name": "AV-AIvin",
       "api": "http://lbapiby.com/api.php/provide/vod",
@@ -309,10 +304,6 @@
     "ikun": {
       "api": "https://ikunzyapi.com/api.php/provide/vod",
       "name": "iKun资源"
-    },
-    "kauiboziyuan": {
-      "api": "https://gayapi.com/api.php/provide/vod",
-      "name": "快播资源网站"
     },
     "xingbaziyuan": {
       "api": "https://xingba111.com/api.php/provide/vod",
