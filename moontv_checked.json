@@ -196,11 +196,6 @@
       "api": "https://www.mdzyapi.com/api.php/provide/vod",
       "detail": "https://www.mdzyapi.com"
     },
-    "api_52": {
-      "name": "AV-91麻豆",
-      "api": "https://91md.me/api.php/provide/vod",
-      "detail": "https://91md.me"
-    },
     "api_53": {
       "name": "AV-AIvin",
       "api": "http://lbapiby.com/api.php/provide/vod",
@@ -225,11 +220,6 @@
       "name": "AV-奶香香",
       "api": "https://Naixxzy.com/api.php/provide/vod",
       "detail": "https://Naixxzy.com"
-    },
-    "api_59": {
-      "name": "AV-森林资源",
-      "api": "https://slapibf.com/api.php/provide/vod",
-      "detail": "https://slapibf.com"
     },
     "api_61": {
       "name": "AV-玉兔资源",
@@ -323,10 +313,6 @@
       "api": "https://cj.lziapi.com/api.php/provide/vod",
       "name": "量子资源"
     },
-    "senlinziyuan": {
-      "api": "https://slapibf.com/api.php/provide/vod",
-      "name": "森林资源"
-    },
     "maotaiziyuan": {
       "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
       "name": "茅台资源"
@@ -370,10 +356,6 @@
     "xinlangaa": {
       "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
       "name": "新浪资源阿"
-    },
-    "lajiaoziyu": {
-      "api": "https://apilj.com/api.php/provide/vod",
-      "name": "辣椒资源黄黄"
     },
     "huyaaer": {
       "api": "https://www.huyaapi.com/api.php/provide/vod",
