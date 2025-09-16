@@ -221,6 +221,11 @@
       "api": "https://Naixxzy.com/api.php/provide/vod",
       "detail": "https://Naixxzy.com"
     },
+    "api_59": {
+      "name": "AV-森林资源",
+      "api": "https://slapibf.com/api.php/provide/vod",
+      "detail": "https://slapibf.com"
+    },
     "api_61": {
       "name": "AV-玉兔资源",
       "api": "https://apiyutu.com/api.php/provide/vod",
@@ -250,11 +255,6 @@
       "name": "AV-辣椒资源",
       "api": "https://apilj.com/api.php/provide/vod",
       "detail": "https://apilj.com"
-    },
-    "api_71": {
-      "name": "AV-鲨鱼资源",
-      "api": "https://shayuapi.com/api.php/provide/vod",
-      "detail": "https://shayuapi.com"
     },
     "bfzy": {
       "api": "https://bfzyapi.com/api.php/provide/vod",
@@ -308,6 +308,10 @@
     "liangziziyuan": {
       "api": "https://cj.lziapi.com/api.php/provide/vod",
       "name": "量子资源"
+    },
+    "senlinziyuan": {
+      "api": "https://slapibf.com/api.php/provide/vod",
+      "name": "森林资源"
     },
     "maotaiziyuan": {
       "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
