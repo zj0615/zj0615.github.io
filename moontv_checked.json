@@ -66,6 +66,11 @@
       "api": "https://tyyszy.com/api.php/provide/vod",
       "detail": "https://tyyszy.com"
     },
+    "api_15": {
+      "name": "TV-如意资源",
+      "api": "https://cj.rycjapi.com/api.php/provide/vod",
+      "detail": ""
+    },
     "api_16": {
       "name": "TV-小猫咪资源",
       "api": "https://zy.xmm.hk/api.php/provide/vod",
@@ -255,6 +260,15 @@
       "name": "AV-辣椒资源",
       "api": "https://apilj.com/api.php/provide/vod",
       "detail": "https://apilj.com"
+    },
+    "api_71": {
+      "name": "AV-鲨鱼资源",
+      "api": "https://shayuapi.com/api.php/provide/vod",
+      "detail": "https://shayuapi.com"
+    },
+    "ruyi": {
+      "api": "https://cj.rycjapi.com/api.php/provide/vod",
+      "name": "如意资源"
     },
     "bfzy": {
       "api": "https://bfzyapi.com/api.php/provide/vod",
