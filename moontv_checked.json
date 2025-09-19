@@ -21,16 +21,6 @@
       "api": "https://ckzy.me/api.php/provide/vod",
       "detail": "https://ckzy.me"
     },
-    "api_5": {
-      "name": "TV-U酷资源",
-      "api": "https://api.ukuapi.com/api.php/provide/vod",
-      "detail": "https://api.ukuapi.com"
-    },
-    "api_6": {
-      "name": "TV-U酷资源",
-      "api": "https://api.ukuapi88.com/api.php/provide/vod",
-      "detail": "https://api.ukuapi88.com"
-    },
     "api_7": {
       "name": "TV-ikun资源",
       "api": "https://ikunzyapi.com/api.php/provide/vod",
@@ -346,10 +336,6 @@
     "aaerziyuan": {
       "api": "https://155api.com/api.php/provide/vod",
       "name": "155黄色资源"
-    },
-    "ukuoziyuan": {
-      "api": "https://api.ukuapi88.com/api.php/provide/vod",
-      "name": "U酷资源网"
     },
     "jinyingziyuan": {
       "api": "https://jyzyapi.com/provide/vod",
