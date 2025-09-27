@@ -46,21 +46,6 @@
       "api": "https://api.guangsuapi.com/api.php/provide/vod",
       "detail": "https://api.guangsuapi.com"
     },
-    "api_11": {
-      "name": "TV-卧龙点播",
-      "api": "https://collect.wolongzyw.com/api.php/provide/vod",
-      "detail": "https://collect.wolongzyw.com"
-    },
-    "api_12": {
-      "name": "TV-卧龙资源",
-      "api": "https://collect.wolongzy.cc/api.php/provide/vod",
-      "detail": ""
-    },
-    "api_13": {
-      "name": "TV-卧龙资源",
-      "api": "https://wolongzyw.com/api.php/provide/vod",
-      "detail": "https://wolongzyw.com"
-    },
     "api_14": {
       "name": "TV-天涯资源",
       "api": "https://tyyszy.com/api.php/provide/vod",
@@ -281,10 +266,6 @@
     "zy360": {
       "api": "https://360zy.com/api.php/provide/vod",
       "name": "360资源"
-    },
-    "wolong": {
-      "api": "https://wolongzyw.com/api.php/provide/vod",
-      "name": "卧龙资源"
     },
     "jisu": {
       "api": "https://jszyapi.com/api.php/provide/vod",
