@@ -21,11 +21,6 @@
       "api": "https://ckzy.me/api.php/provide/vod",
       "detail": "https://ckzy.me"
     },
-    "api_5": {
-      "name": "TV-U酷资源",
-      "api": "https://api.ukuapi.com/api.php/provide/vod",
-      "detail": "https://api.ukuapi.com"
-    },
     "api_6": {
       "name": "TV-U酷资源",
       "api": "https://api.ukuapi88.com/api.php/provide/vod",
@@ -251,11 +246,6 @@
       "api": "https://apilsbzy1.com/api.php/provide/vod",
       "detail": "https://apilsbzy1.com"
     },
-    "api_67": {
-      "name": "AV-色南国",
-      "api": "https://api.sexnguon.com/api.php/provide/vod",
-      "detail": "https://api.sexnguon.com"
-    },
     "api_69": {
       "name": "AV-辣椒资源",
       "api": "https://apilj.com/api.php/provide/vod",
@@ -277,6 +267,11 @@
     "tyyszy": {
       "api": "https://tyyszy.com/api.php/provide/vod",
       "name": "天涯资源"
+    },
+    "ffzy": {
+      "api": "http://ffzy5.tv/api.php/provide/vod",
+      "name": "非凡影视",
+      "detail": "http://ffzy5.tv"
     },
     "zy360": {
       "api": "https://360zy.com/api.php/provide/vod",
