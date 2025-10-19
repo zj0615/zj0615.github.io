@@ -21,6 +21,11 @@
       "api": "https://ckzy.me/api.php/provide/vod",
       "detail": "https://ckzy.me"
     },
+    "api_5": {
+      "name": "TV-U酷资源",
+      "api": "https://api.ukuapi.com/api.php/provide/vod",
+      "detail": "https://api.ukuapi.com"
+    },
     "api_6": {
       "name": "TV-U酷资源",
       "api": "https://api.ukuapi88.com/api.php/provide/vod",
@@ -245,6 +250,11 @@
       "name": "AV-老色逼资源",
       "api": "https://apilsbzy1.com/api.php/provide/vod",
       "detail": "https://apilsbzy1.com"
+    },
+    "api_67": {
+      "name": "AV-色南国",
+      "api": "https://api.sexnguon.com/api.php/provide/vod",
+      "detail": "https://api.sexnguon.com"
     },
     "api_69": {
       "name": "AV-辣椒资源",
