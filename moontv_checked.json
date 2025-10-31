@@ -31,11 +31,6 @@
       "api": "https://api.ukuapi88.com/api.php/provide/vod",
       "detail": "https://api.ukuapi88.com"
     },
-    "api_7": {
-      "name": "TV-ikun资源",
-      "api": "https://ikunzyapi.com/api.php/provide/vod",
-      "detail": "https://ikunzyapi.com"
-    },
     "api_8": {
       "name": "TV-wujinapi无尽",
       "api": "https://api.wujinapi.cc/api.php/provide/vod",
@@ -191,11 +186,6 @@
       "api": "http://lbapiby.com/api.php/provide/vod",
       "detail": ""
     },
-    "api_54": {
-      "name": "AV-JKUN资源",
-      "api": "https://jkunzyapi.com/api.php/provide/vod",
-      "detail": "https://jkunzyapi.com"
-    },
     "api_55": {
       "name": "AV-souav资源",
       "api": "https://api.souavzy.vip/api.php/provide/vod",
@@ -263,11 +253,6 @@
       "api": "https://tyyszy.com/api.php/provide/vod",
       "name": "天涯资源"
     },
-    "ffzy": {
-      "api": "http://ffzy5.tv/api.php/provide/vod",
-      "name": "非凡影视",
-      "detail": "http://ffzy5.tv"
-    },
     "zy360": {
       "api": "https://360zy.com/api.php/provide/vod",
       "name": "360资源"
@@ -300,10 +285,6 @@
     "wwzy": {
       "api": "https://wwzy.tv/api.php/provide/vod",
       "name": "旺旺短剧"
-    },
-    "ikun": {
-      "api": "https://ikunzyapi.com/api.php/provide/vod",
-      "name": "iKun资源"
     },
     "xingbaziyuan": {
       "api": "https://xingba111.com/api.php/provide/vod",
@@ -372,10 +353,6 @@
     "souavee": {
       "api": "https://api.souavzy.vip/api.php/provide/vod",
       "name": "搜av黄色资源"
-    },
-    "JKUNHUANGSE": {
-      "api": "https://jkunzyapi.com/api.php/provide/vod",
-      "name": "JKUN黄色资源"
     },
     "xibaocaiji": {
       "api": "https://www.xxibaozyw.com/api.php/provide/vod",
