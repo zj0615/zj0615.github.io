@@ -21,6 +21,16 @@
       "api": "https://ckzy.me/api.php/provide/vod",
       "detail": "https://ckzy.me"
     },
+    "api_5": {
+      "name": "TV-U酷资源",
+      "api": "https://api.ukuapi.com/api.php/provide/vod",
+      "detail": "https://api.ukuapi.com"
+    },
+    "api_6": {
+      "name": "TV-U酷资源",
+      "api": "https://api.ukuapi88.com/api.php/provide/vod",
+      "detail": "https://api.ukuapi88.com"
+    },
     "api_7": {
       "name": "TV-ikun资源",
       "api": "https://ikunzyapi.com/api.php/provide/vod",
@@ -105,6 +115,11 @@
       "name": "TV-最大资源",
       "api": "https://api.zuidapi.com/api.php/provide/vod",
       "detail": "https://api.zuidapi.com"
+    },
+    "api_29": {
+      "name": "TV-电影天堂资源",
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
+      "detail": "http://caiji.dyttzyapi.com"
     },
     "api_30": {
       "name": "AV-百万资源",
@@ -246,6 +261,11 @@
       "api": "https://shayuapi.com/api.php/provide/vod",
       "detail": "https://shayuapi.com"
     },
+    "dyttzy": {
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
+      "name": "电影天堂资源",
+      "detail": "http://caiji.dyttzyapi.com"
+    },
     "ruyi": {
       "api": "https://cj.rycjapi.com/api.php/provide/vod",
       "name": "如意资源"
@@ -308,10 +328,6 @@
       "api": "https://cj.lziapi.com/api.php/provide/vod",
       "name": "量子资源"
     },
-    "senlinziyuan": {
-      "api": "https://slapibf.com/api.php/provide/vod",
-      "name": "森林资源"
-    },
     "maotaiziyuan": {
       "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
       "name": "茅台资源"
@@ -331,6 +347,10 @@
     "aaerziyuan": {
       "api": "https://155api.com/api.php/provide/vod",
       "name": "155黄色资源"
+    },
+    "ukuoziyuan": {
+      "api": "https://api.ukuapi88.com/api.php/provide/vod",
+      "name": "U酷资源网"
     },
     "jinyingziyuan": {
       "api": "https://jyzyapi.com/provide/vod",
