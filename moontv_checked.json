@@ -116,11 +116,6 @@
       "api": "https://api.zuidapi.com/api.php/provide/vod",
       "detail": "https://api.zuidapi.com"
     },
-    "api_29": {
-      "name": "TV-电影天堂资源",
-      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
-      "detail": "http://caiji.dyttzyapi.com"
-    },
     "api_30": {
       "name": "AV-百万资源",
       "api": "https://api.bwzyz.com/api.php/provide/vod",
@@ -261,11 +256,6 @@
       "api": "https://shayuapi.com/api.php/provide/vod",
       "detail": "https://shayuapi.com"
     },
-    "dyttzy": {
-      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
-      "name": "电影天堂资源",
-      "detail": "http://caiji.dyttzyapi.com"
-    },
     "ruyi": {
       "api": "https://cj.rycjapi.com/api.php/provide/vod",
       "name": "如意资源"
@@ -327,6 +317,10 @@
     "liangziziyuan": {
       "api": "https://cj.lziapi.com/api.php/provide/vod",
       "name": "量子资源"
+    },
+    "senlinziyuan": {
+      "api": "https://slapibf.com/api.php/provide/vod",
+      "name": "森林资源"
     },
     "maotaiziyuan": {
       "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
